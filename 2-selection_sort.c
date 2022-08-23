@@ -6,6 +6,11 @@ void selection_sort(int *array, size_t size)
 
 	PEPINIMO = array[PEPE1];
 
+	if (array == NULL || size < 2)
+	{
+		return;
+	}
+
 	while (size > PEPE1)
 	{
 		PEPINIMO = PEPE1;
