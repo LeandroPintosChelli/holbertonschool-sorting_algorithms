@@ -1,35 +1,38 @@
 #include "sort.h"
-
+/**
+* selection_sort - sorts an array of integers in ascending order
+* @array: array
+* @size: lenght of size
+*/
 void selection_sort(int *array, size_t size)
 {
-	unsigned int PEPE1 = 0, PEPINIMO, PEPE2, PEPAUX;
-
-	PEPINIMO = array[PEPE1];
+	size_t i = 0, minimo, j;
+	unsigned int aux;
 
 	if (array == NULL || size < 2)
 	{
 		return;
 	}
 
-	while (size > PEPE1)
+	while (i < size - 1)
 	{
-		PEPINIMO = PEPE1;
-		for (PEPE2 = PEPE1 + 1; size > PEPE2; PEPE2++)
+		minimo = i;
+		for (j = i + 1; j < size; j++)
 		{
-			if (array[PEPINIMO] > array[PEPE2])
+			if (array[minimo] > array[j])
 			{
-				PEPINIMO = PEPE2;
+				minimo = j;
 			}
 		}
 
-		if (PEPINIMO != PEPE1)
+		if (minimo != i)
 		{
-			PEPAUX = array[PEPE1];
-			array[PEPE1] = array[PEPINIMO];
-			array[PEPINIMO] = array[PEPAUX];
+			aux = array[i];
+			array[i] = array[minimo];
+			array[minimo] = aux;
 
 			print_array(array, size);
 		}
-		PEPE1++;
+		i++;
 	}
 }
